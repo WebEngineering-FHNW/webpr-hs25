@@ -10,16 +10,20 @@
         const test = x => document.writeln( String(x));
 
         let x = 0;
-        function foo() {
+        {
             let x = 1;
             document.writeln(String(x));
         }
-        foo();
+        // foo();
         document.writeln(String(x));
 
-        // test( id(id) === id);
-        // test( Konst(id)(undefined) === id);
-        // test( Kite(undefined)(id) === id);
+        const id     = x => x;
+        const Konst  = x => y => x;
+        const Kite   = Konst(id)  ;
+
+        test( id(id) === id);
+        test( Konst(id)(undefined) === id);
+        test( Kite(undefined)(id)  === id);
 
     </script>
 </body>

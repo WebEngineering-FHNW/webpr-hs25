@@ -1,3 +1,27 @@
+const id    = x      => x;
+const konst = x => y => x;
+const snd   = konst(id);     // combinator
+
+const T = konst;
+const F = snd;
+
+// const and = a => b => a ( b (T) (F) )  ( b (F) (F) );
+// const and = a => b => a ( b (T) (F) )  ( F );
+// const and = a => b => a ( b )  ( F );
+const and = a => b => a(b)(a);
+
+// const or = a => b => a ( b (T) (T) )   (  b (T) (F)  );
+// const or = a => b => a ( a )   (  b (T) (F)  );
+// const or = a => b => a(a)(b);
+const or = a => a(a);
+
+const Pair = fn => ln => selector => selector(fn)(ln);
+const firstname = konst;
+const lastname  = snd;
+
+const Left   =  msg => lc => rc => lc(msg);
+const Right  =  val => lc => rc => rc(val);
+// const either =  lorR => leftCase => rightCase => lorR(leftCase)(rightCase);
 
 
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body id="body">
 
 <div id="out"></div>
 
@@ -12,7 +12,24 @@
     // Example
 
     // 'https://jsonplaceholder.typicode.com/todos/1'
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m";
 
+    let result = undefined;
+    // body.style.background = "black";
+    // fetch(url)
+    //     .then( resp => result = resp.json())
+    //     .then( data => console.log(data.longitude))
+    //     .then( () => body.style.background = "revert")
+    // ;
+
+    const foo = async () => {
+        body.style.background = "black";
+        const resp = await fetch(url);
+        const data = await resp.json();
+        console.log(data.longitude);
+        body.style.background = "revert";
+    };
+    foo();
 
 </script>
 

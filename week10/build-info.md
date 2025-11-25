@@ -6,7 +6,9 @@ be done with your personal user account on your personal machine!
 This could read/write/delete/execute all your personal data.
 
 The use of bundlers and all other NPM-dependent code should be
-confined to throw-away virtual machines (e.g. github actions).
+confined to **anonymous throw-away virtual machines** 
+(even github actions can be compromised, see 
+https://socket.dev/blog/shai-hulud-strikes-again-v2).
 
 No privacy concerned code or data must ever be committed to the
 repository.

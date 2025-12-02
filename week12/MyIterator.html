@@ -6,6 +6,18 @@
 <body>
 <script>
 
+    let n = 0;
+    const iterable = {
+        [Symbol.iterator]: () => ({
+            next: () => ({value: n++, done: n > 10})
+        })
+    };
+
+
+    console.log([...iterable]);
+
+
+
 </script>
 </body>
 </html>
